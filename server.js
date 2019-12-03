@@ -27,11 +27,11 @@ mongoose.connect('mongodb://localhost:27017/Miados', {
 
 //defining a route, a simple one
 app.get('/', (req, res) => {
-    res.json({ 'message': 'Olá, seja-bem vindo ao Miados - Lares Amigos!' });
+    res.json({ 'message': 'Olá, seja-bem vindo ao Miados!' });
 });
 
-require('./app/routes/miadosRoute')(app);
-
+require('./app/routes/larTempRoute')(app);
+require('./app/routes/resgateRoute')(app);
 //port
 app.listen(8000, () => {
     console.log(`Server is listening on port 8000`);
