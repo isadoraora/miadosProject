@@ -1,0 +1,28 @@
+<html>
+
+<body>
+
+    <script>
+        if ('geolocation' in navigator) {
+            // navigator.geolocation.getCurrentPosition(function (position) {
+            //     console.log(position)
+            // }, function (error) {
+            //     console.log(error)
+            // })
+            //criamos uma variavel pra ficar de olho na localizacao do usuario, se ele se mover vai atualizando
+            //watcher eh como um id
+            const watcher = navigator.geolocation.watchPosition(function (position) {
+                console.log(position)
+            }, function (error) {
+                console.log(error)
+            }, {
+                enableHighAccuracy: true, maximumAge: 30000, timeout: 30000
+            })
+            navigator.geolocation.clearWatch(watcher)
+        } else {
+            alert('ops, não localizamos')
+        }
+    </script>
+</body>
+
+</html>

@@ -17,7 +17,8 @@ mongoose.Promise = global.Promise;
 
 //Connecting to our database
 mongoose.connect('mongodb://localhost:27017/Miados', {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }).then(() => {
     console.log("Conectado ao banco de dados com sucessso!");
 }).catch(err => {
@@ -32,10 +33,8 @@ app.get('/', (req, res) => {
 
 require('./app/routes/larTempRoute')(app);
 require('./app/routes/resgateRoute')(app);
+
 //port
 app.listen(8000, () => {
     console.log(`Server is listening on port 8000`);
-});
-
-
-
+})
